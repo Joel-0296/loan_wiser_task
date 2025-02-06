@@ -5,16 +5,13 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const BaseFooter = (props) => {
   const navigateTabs = (direction) => {
     let currentIndex = props.docs.findIndex(tab => tab.dockeyval === props.dockey);         
-      if (direction === "next") {        
-      currentIndex = (currentIndex == props.docs.length-1)?currentIndex = 0 : currentIndex = currentIndex + 1;
+    if (direction === "next") {        
+      currentIndex = (currentIndex === props.docs.length-1)?currentIndex = 0 : currentIndex = currentIndex + 1;
       props.setDocKey(props.docs[currentIndex].dockeyval);
       props.setAppKey(props.docs[currentIndex].appkeyval);
     }    
-      if (direction === "prev") {      
-      if(currentIndex == 0){
-        currentIndex = props.docs.length;
-      }
-      currentIndex = (currentIndex == 0)? currentIndex = props.docs.length : currentIndex;
+      if (direction === "prev") {            
+      currentIndex = (currentIndex === 0)? currentIndex = props.docs.length : currentIndex;
       props.setDocKey(props.docs[currentIndex - 1].dockeyval);
       props.setAppKey(props.docs[currentIndex - 1].appkeyval);
     }    
