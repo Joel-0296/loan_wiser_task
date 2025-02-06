@@ -12,6 +12,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 import { AddDocsbutton, AddDocscontent } from "./AddDocs";
+import BaseFooter from "../includes/BaseFooter";
 
 const AddApp = (props) => {
   const [dockey, setDocKey] = useState("");
@@ -31,9 +32,7 @@ const AddApp = (props) => {
     ]);
     setdocname("");
     setShow(false);
-  };
-  console.log(docs);
-  console.log(appkey);
+  };  
   return (
     <>
       {props.applist.length > 0 ? (        
@@ -98,11 +97,11 @@ const AddApp = (props) => {
               </Tab.Container>
             </Tab>
           ))}
-        </Tabs>        
+        </Tabs>                
       ) : (
         <p>add Application</p>
       )}
-
+<BaseFooter setDocKey={setDocKey} setAppKey={setAppKey} dockey={dockey} docs={docs} appkey={appkey} />
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Documentation</Modal.Title>

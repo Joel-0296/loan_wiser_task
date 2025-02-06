@@ -21,11 +21,9 @@ const BaseHeader = () => {
         setAppname("");
         setShow(false);
     };
-    const onRemoveTab = (ekey) => {
-        console.log(ekey);
+    const onRemoveTab = (ekey) => {        
         setApps(apps => apps.filter(app => app !== ekey));
-    };
-    console.log(apps.length);    
+    };     
   return (
     <div>
         <div class='d-flex justify-content-between align-items-center'>
