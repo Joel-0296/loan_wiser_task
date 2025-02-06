@@ -1,9 +1,7 @@
 import React,{useState,useRef} from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import {Button, Stack} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import { FaPlus, FaUpload, FaTimes } from 'react-icons/fa';
 
 export const AddDocsbutton = (props) => {
