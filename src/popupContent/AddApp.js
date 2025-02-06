@@ -36,7 +36,7 @@ const AddApp = (props) => {
   console.log(appkey);
   return (
     <>
-      {props.applist.length > 0 ? (
+      {props.applist.length > 0 ? (        
         <Tabs
           // defaultActiveKey="profile"
           variant="pills"
@@ -47,7 +47,10 @@ const AddApp = (props) => {
           onSelect={(k) => setAppKey(k)}
         >
           {props.applist.map((aplist) => (
-            <Tab eventKey={aplist} title={aplist}>
+            <Tab eventKey={aplist} title={<span>{aplist}<Button onClick={(e)=> {
+              e.isPropagationStopped();
+              props.onRemoveTab(aplist);
+            }} variant={'danger'}>x</Button></span>}>
               <Tab.Container
                 id="app-tabs"
                 // defaultActiveKey="first"
@@ -95,7 +98,7 @@ const AddApp = (props) => {
               </Tab.Container>
             </Tab>
           ))}
-        </Tabs>
+        </Tabs>        
       ) : (
         <p>add Application</p>
       )}

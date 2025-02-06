@@ -21,15 +21,19 @@ const BaseHeader = () => {
         setAppname("");
         setShow(false);
     };
+    const onRemoveTab = (ekey) => {
+        console.log(ekey);
+        setApps(apps => apps.filter(app => app !== ekey));
+    };
     console.log(apps.length);    
   return (
     <div>
         <div class='d-flex justify-content-between align-items-center'>
             <h1>Document Upload</h1>        
-            <button className='btn btn-primary add' onClick={handleShow}>Add Application</button>
+            <Button className='btn btn-primary add' onClick={handleShow}>Add Application</Button>
         </div>
                 
-        <AddApp applist={apps}/>
+        <AddApp applist={apps} onRemoveTab={onRemoveTab}/>
 
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
